@@ -1,13 +1,19 @@
 package com.oladapo.EasySchool.model;
 
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 import lombok.Data;
 
 @Data
 public class Contact {
+
+    @NotBlank(message = "Name must not be empty")
+    @Size(min = 3, message = "Name must be at least 3 characters long")
     private String name;
+
+    
     private String mobileNum;
     private String email;
     private String subject;
     private String message;
-
 }
