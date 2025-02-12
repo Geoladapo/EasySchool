@@ -1,0 +1,8 @@
+package com.oladapo.EasySchool.constants;
+
+public interface EasySchoolConstants {
+
+    public static final String Anonymous = "Anonymous";
+    public static final Strin
+
+}

@@ -28,7 +28,6 @@ public class SecurityConfig {
                                         "/assets/**").permitAll().
                                 requestMatchers(PathRequest.toH2Console()).permitAll()
                                 .requestMatchers("/displayMessages").hasRole("ADMIN").
-                                requestMatchers("/closeMsg/**").hasRole("ADMIN").
                                 requestMatchers("/dashboard").authenticated()
                                 .anyRequest().authenticated())
                 .formLogin(form -> form.loginPage("/login").defaultSuccessUrl("/dashboard", true)
