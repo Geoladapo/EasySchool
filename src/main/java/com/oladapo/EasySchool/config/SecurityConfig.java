@@ -16,8 +16,7 @@ public class SecurityConfig {
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        http.csrf(csrf -> csrf.ignoringRequestMatchers("/saveMsg")
-                        .ignoringRequestMatchers(PathRequest.toH2Console()))
+        http.csrf(csrf -> csrf.ignoringRequestMatchers("/saveMsg"))
                 .authorizeHttpRequests((requests) ->
                         requests.requestMatchers("/", "/home",
                                         "/holidays/**",
@@ -38,8 +37,6 @@ public class SecurityConfig {
                         .invalidateHttpSession(true).permitAll())
                 .httpBasic(Customizer.withDefaults());
 
-        http.headers(headersConfigurer ->
-                headersConfigurer.frameOptions(HeadersConfigurer.FrameOptionsConfig::disable));
         return http.build();
     }
 
