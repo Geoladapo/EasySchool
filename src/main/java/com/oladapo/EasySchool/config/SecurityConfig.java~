@@ -26,7 +26,7 @@ public class SecurityConfig {
                                         "/courses",
                                         "/about",
                                         "/assets/**").permitAll().
-                                requestMatchers("/public/**").permitAll().
+                                requestMatchers("/public/register").permitAll().
                                 requestMatchers(PathRequest.toH2Console()).permitAll()
                                 .requestMatchers("/displayMessages").hasRole("ADMIN").
                                 requestMatchers("/closeMsg/**").hasRole("ADMIN").
