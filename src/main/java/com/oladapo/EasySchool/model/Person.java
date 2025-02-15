@@ -1,9 +1,8 @@
 package com.oladapo.EasySchool.model;
 
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Transient;
+import com.oladapo.EasySchool.annotations.FieldsValueMatch;
+import com.oladapo.EasySchool.annotations.PasswordValidator;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
@@ -11,6 +10,11 @@ import jakarta.validation.constraints.Size;
 import lombok.Data;
 
 @Data
+@Entity
+@FieldsValueMatch.List({
+    @FieldsValueMatch(field = "pwd", fieldMatch = "confirmPwd", message = "Passwords do not match"),
+    @FieldsValueMatch(field = "email", fieldMatch = "confirmEmail", message = "Email addresses do not match")
+})
 public class Person extends BaseEntity {
 
     @Id
@@ -36,7 +40,7 @@ public class Person extends BaseEntity {
 
     @NotBlank(message = "Password must not be blank")
     @Size(min = 5, message = "Password must be at least 5 characters long")
-//    @PasswordValidator
+    @PasswordValidator
     private String pwd;
 
     @NotBlank(message = "Confirm Password must not be blank")
