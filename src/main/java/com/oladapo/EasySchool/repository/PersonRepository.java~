@@ -1,0 +1,4 @@
+package com.oladapo.EasySchool.repository;
+
+public interface PersonRepository {
+}
