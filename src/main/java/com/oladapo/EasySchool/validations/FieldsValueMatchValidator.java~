@@ -32,10 +32,9 @@ public class FieldsValueMatchValidator implements
 //        return fieldMatchValue == null;
 //    }
 
-        if (fieldValue != null) {
+        if(fieldValue != null) {
             return fieldValue.equals(fieldMatchValue);
-        } else {
+        }else {
             return fieldMatchValue == null;
         }
-    }
 }

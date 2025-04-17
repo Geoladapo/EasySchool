@@ -28,7 +28,7 @@ public class PersonService {
         boolean isSaved = false;
         Roles role = rolesRepository.getByRoleName(EasySchoolConstants.STUDENT_ROLE);
         person.setRoles(role);
-        person.setPwd(passwordEncoder.encode(person.getPwd()));
+        person.setPassword(passwordEncoder.encode(person.getPassword()));
         person = personRepository.save(person);
         if(null != person && person.getPersonId() > 0){
             isSaved = true;
