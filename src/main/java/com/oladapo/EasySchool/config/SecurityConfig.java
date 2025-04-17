@@ -30,7 +30,7 @@ public class SecurityConfig {
                                         "/assets/**").permitAll().
                                 requestMatchers("/public/**").permitAll().
                                 requestMatchers(PathRequest.toH2Console()).permitAll()
-                                .requestMatchers("/displayMessages").hasRole("ADMIN").
+                                .requestMatchers("/displayMessages/**").hasRole("ADMIN").
                                 requestMatchers("/admin/**").hasRole("ADMIN").
                                 requestMatchers("/closeMsg/**").hasRole("ADMIN").
                                 requestMatchers("/student/**").hasRole("STUDENT").
