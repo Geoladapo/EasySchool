@@ -19,7 +19,7 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http.csrf(csrf -> csrf.ignoringRequestMatchers("/saveMsg")
-                        .ignoringRequestMatchers("/public/**"))
+                        .ignoringRequestMatchers("/public/**", "/api/**"))
                 .authorizeHttpRequests((requests) ->
                         requests.requestMatchers("/", "/home",
                                         "/holidays/**",
@@ -36,6 +36,7 @@ public class SecurityConfig {
                                 requestMatchers("/student/**").hasRole("STUDENT").
                                 requestMatchers("/displayProfile").authenticated().
                                 requestMatchers("/updateProfile").authenticated().
+                                requestMatchers("/api/**").authenticated().
                                 requestMatchers("/dashboard").authenticated()
                                 .anyRequest().authenticated())
                 .formLogin(form -> form.loginPage("/login").defaultSuccessUrl("/dashboard", true)
